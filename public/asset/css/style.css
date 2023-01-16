@@ -34,6 +34,12 @@ body {
     line-height: 1.5;
     overflow-x: hidden;
 }
+a{
+    text-decoration: none;
+}
+li{
+    list-style: none;
+}
 .align-items-center{
     align-items: center;
 }
@@ -85,7 +91,7 @@ section {
 
 .container {
     width: 100%;
-    max-width: 1200px;
+    max-width: 1300px;
     margin: auto;
 }
 .row{
@@ -256,4 +262,272 @@ forms
 }
 .form-group input:focus{
     border: none !important;
+}
+
+/* ===============
+    Products
+    ============= */
+.shop_items{
+    grid-template-columns: repeat(auto-fit,minmax(300px, 1fr));
+    margin: 20px;
+    width: 100%;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    grid-auto-flow:dense;
+}
+.shop_items .shop_item{
+    width: 100%;
+    min-width: 300px;
+    background: var(--white);
+    height: 400px;
+    margin: 10px;
+    padding:10px 20px;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    flex-direction: column;
+    cursor: pointer;
+    position: relative;
+    transition: all .5s ease-in-out;
+}
+.shop_items .shop_item img{
+    height: 70%;
+    box-shadow: none;
+}
+.shop_items .shop_item .item_info{
+    padding: 10px;
+}
+.shop_items .shop_item .item_info h5{
+    font-size: 1.2rem;
+    color: #222;
+    font-weight: 500;
+    line-height: 1.2;
+    max-width: 100%;
+    margin-bottom: 5px;
+}
+.shop_items .shop_item .item_info p{
+    font-size: .8rem;
+    color: var(--main-color);
+    font-weight: 400;
+    margin-bottom: 10px;
+}
+.shop_items .shop_item .item_info strong{
+    font-size: 1.5rem;
+    font-weight: 400;
+    text-transform: capitalize;
+    color: var(--primary-color);
+}
+.shop_items .shop_item .shop_cart{
+    position: absolute;
+    left: 50%;
+    top: 40%;
+    transform: translate(-50%,-50%);
+    z-index: 100;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    text-align: center;
+    display: flex;
+    visibility: hidden;
+    justify-content: center;
+    align-items: center;
+    background-color: #222f;
+    transition: all .3s ease-in-out;
+}
+.shop_items .shop_item:hover .shop_cart{
+    visibility: visible;
+    transition: all .3s ease-in-out;
+}
+.shop_items .shop_item .shop_cart svg path{
+    width: 40px;
+    height: 40px;
+    font-size: 1px;
+    color: #fff;
+    display: block;
+}
+
+/* dashboard admin */
+.side_bar{
+    background-color:#18293c;
+    padding: 20px 30px;
+    height: 100%;
+    overflow: hidden;
+    left: 0;
+    position: fixed;
+    transition: 0.5s ease-in-out;
+}
+.side_bar ul{
+    background-color: transparent;
+    padding: 5px 15px;
+    width: 100%;
+    /* position: absolute; */
+}
+.side_bar ul li:first-child{
+    pointer-events: none;
+    font-size: 24px;
+    font-weight: 600;
+    margin-bottom: 40px;
+}
+.side_bar ul li{
+    padding:10px 0 20px;
+    position: relative;
+    list-style: none;
+}
+.side_bar ul li a{
+    display: flex;
+    position: relative;
+    color: #eee;
+    gap: 10px;
+}
+.main{
+    width: calc(100% - 20rem);
+    position: absolute;
+    min-height: 100vh;
+    transition: 0.5s ease-in-out;
+    left: 20rem;
+}
+.main .topbar .user{
+    width: 50px;
+    height: 50px;
+    position: relative;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+.main .topbar .user img{
+    position: absolute;
+    inset: 0;
+    user-select: none;
+}
+.main .topbar .user img:hover + .sub_profile{
+    display: block;
+}
+.main .topbar .user .sub_profile{
+    position: absolute;
+    top: 100%;
+    z-index: 100;
+    background-color: #18293c;
+    padding: 10px;
+    margin-top: 15px;
+    display: none;
+}
+.main .topbar .user .sub_profile li{
+    font-size: 15px;
+    font-weight: 300;
+    color: #fefefe;
+    padding: 5px 10px;
+}
+.main .cardbox{
+    display: grid;
+    grid-template-columns: repeat(auto-fit,minmax(200px, 1fr));
+    gap: 20px;
+}
+
+/* main table */
+.main .items_view{
+    position: relative;
+    min-height: 500px;
+    border-radius: 20px;
+    background-color: #fefefe;
+    padding: 20px 25px;
+    overflow-x: auto;
+}
+.main .items_view .table_name h4{
+    font-size: 20px;
+    color: #18293c;
+    font-weight: 600;
+    letter-spacing: 1px;
+}
+.main .items_view table{
+    width: 100%;
+    border-collapse: collapse;
+}
+.main .items_view  table tr{
+    color: #0000ff;
+    border-bottom: 1px solid rgba(0,0,0,0.3);
+    padding: 0 10px;
+}
+.main .items_view  table tr td{
+    padding: 2px 10px;
+    text-align:start;
+    font-size: 14px;
+    /* width: calc(100% / 6); */
+}
+.main .items_view table tbody tr:hover{
+    background-color: #0000ff;
+    color: #fff;
+}
+/* .main .items_view table tbody tr td:first-child{
+    text-align: start;
+} */
+.main .items_view table tbody tr td :where(img){
+    text-align: center;
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+}
+.main .items_view table tbody tr td img{
+    width: 60px;
+    height: 50px;
+    background-position: center;
+}
+.main .items_view table tbody tr td a,
+.main .items_view table tbody tr td .a{
+    font-size: 12px;
+    margin: 5px 2px;
+    color: #fff;
+    background-color: #18293c;
+    padding: 4px 3px;
+    border-radius: 5px;
+}
+@media screen and (max-width:991px) {
+    .side_bar{
+        left: -320px;
+    }
+    .main{
+        width: 100%;
+        left: 0;
+    }
+}
+
+/* footer */
+footer{
+    padding: 20px 10px;
+    min-height: 40vh;
+}
+footer .footer{
+    display: flex;
+    justify-content: space-around;
+}
+.footer .footer-item{
+    padding: 0 10px;
+    width: 250px;
+}
+.footer .footer-item h3{
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: #eee;
+    border-bottom: 1px solid #cddc39;
+}
+.footer .footer-item p{
+    font-size: 18px;
+    word-wrap: break-word;
+    color: #aef1ee;
+    margin-top: 15px;
+
+}
+.footer .footer-item .links a li{
+    font-size: 16px;
+    margin-bottom: 10px;
+    color: var(--white);
+    padding: 0px 10px;
+    transition: all .4s ease-in-out;
+}
+.footer .footer-item .links a:hover li{
+    margin-left: 15px;
+    transition: all .4s ease-in-out;
 }

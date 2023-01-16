@@ -12,7 +12,7 @@
             </div>
             <div class="part2">
                 <div class="img-box">
-                    <img src="{{ asset('asset/images/jar-of-honey.jpg') }}" alt="" sizes="" srcset="">
+                    <img src="{{ asset('asset/images/honey-Kenya.jpg') }}" alt="" sizes="" srcset="">
                 </div>
             </div>
         </div>
@@ -26,122 +26,27 @@
         <div class="row pt-2">
             <div class="cards">
                 {{-- card box --}}
-                <div class="card-box">
-                    <div class="card-img">
-                        <img src="{{ asset('asset/images/can.webp') }}" alt="honey">
-                    </div>
-                    <div class="card-info">
-                        <div class="card-intro">
-                            <h5>Sweet Honey</h5>
-                            <span>$12</span>
+                @unless (count($products) == 0)
+                    @foreach ($products as $product)
+                        <div class="card-box">
+                            <div class="card-img">
+                                <img src="{{ $product->image ? asset('storage/' . $product->image) : asset('asset/images/peanutbutter.jpg') }}" alt="honey">
+                            </div>
+                            <!-- {{ $product->image ? asset('storage/' . $product->image) : asset('/images/no-image.png') }} -->
+                            <div class="card-info">
+                                <div class="card-intro">
+                                    <h5>{{ $product->title }}</h5>
+                                    <span>Ksh: {{ $product->price }}</span>
+                                </div>
+                                <div class="card-body">
+                                    <p>{{ $product->body }}</p>
+                                    <a href="shop/more/{{ $product->id }}" type="submit" class="btn btn-primary">View More</a>
+                                </div>
+                            </div>
                         </div>
-                        <div class="card-body">
-                            <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ab, velit.</p>
-                            <a href="" type="submit" class="btn btn-primary">View More</a>
-                        </div>
-                    </div>
-                </div>
-                {{-- card box --}}
-                <div class="card-box">
-                    <div class="card-img">
-                        <img src="{{ asset('asset/images/can.webp') }}" alt="honey">
-                    </div>
-                    <div class="card-info">
-                        <div class="card-intro">
-                            <h5 class="d">Sweet Honey</h5>
-                            <span>$12</span>
-                        </div>
-                        <div class="card-body">
-                            <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ab, velit.</p>
-                            <button type="submit" class="btn btn-primary">View More</button>
-                        </div>
-                    </div>
-                </div>
-                {{-- card box --}}
-                <div class="card-box">
-                    <div class="card-img">
-                        <img src="{{ asset('asset/images/can.webp') }}" alt="honey">
-                    </div>
-                    <div class="card-info">
-                        <div class="card-intro">
-                            <h5 class="d">Sweet Honey</h5>
-                            <span>$12</span>
-                        </div>
-                        <div class="card-body">
-                            <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ab, velit.</p>
-                            <button type="submit" class="btn btn-primary">View More</button>
-                        </div>
-                    </div>
-                </div>
-                {{-- card-box end --}}
-                {{-- card box --}}
-                <div class="card-box">
-                    <div class="card-img">
-                        <img src="{{ asset('asset/images/can.webp') }}" alt="honey">
-                    </div>
-                    <div class="card-info">
-                        <div class="card-intro">
-                            <h5 class="d">Sweet Honey</h5>
-                            <span>$12</span>
-                        </div>
-                        <div class="card-body">
-                            <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ab, velit.</p>
-                            <button type="submit" class="btn btn-primary">View More</button>
-                        </div>
-                    </div>
-                </div>
-                {{-- card-box end --}}
-                {{-- card box --}}
-                <div class="card-box">
-                    <div class="card-img">
-                        <img src="{{ asset('asset/images/can.webp') }}" alt="honey">
-                    </div>
-                    <div class="card-info">
-                        <div class="card-intro">
-                            <h5 class="d">Sweet Honey</h5>
-                            <span>$12</span>
-                        </div>
-                        <div class="card-body">
-                            <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ab, velit.</p>
-                            <button type="submit" class="btn btn-primary">View More</button>
-                        </div>
-                    </div>
-                </div>
-                {{-- card-box end --}}
-                {{-- card box --}}
-                <div class="card-box">
-                    <div class="card-img">
-                        <img src="{{ asset('asset/images/can.webp') }}" alt="honey">
-                    </div>
-                    <div class="card-info">
-                        <div class="card-intro">
-                            <h5 class="d">Sweet Honey</h5>
-                            <span>$12</span>
-                        </div>
-                        <div class="card-body">
-                            <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ab, velit.</p>
-                            <button type="submit" class="btn btn-primary">View More</button>
-                        </div>
-                    </div>
-                </div>
-                {{-- card-box end --}}
-                {{-- card box --}}
-                <div class="card-box">
-                    <div class="card-img">
-                        <img src="{{ asset('asset/images/can.webp') }}" alt="honey">
-                    </div>
-                    <div class="card-info">
-                        <div class="card-intro">
-                            <h5 class="d">Sweet Honey</h5>
-                            <span>$12</span>
-                        </div>
-                        <div class="card-body">
-                            <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ab, velit.</p>
-                            <button type="submit" class="btn btn-primary">View More</button>
-                        </div>
-                    </div>
-                </div>
-                {{-- card-box end --}}
+                    @endforeach
+                @endunless
+                
             </div>
         </div>
     </div>

@@ -10,5 +10,12 @@
     <link rel="stylesheet" href="{{ asset('css/app.css') }}">
     <link rel="stylesheet" href="{{ asset('asset/css/nav.css') }}">
     <link rel="stylesheet" href="{{ asset('asset/css/style.css') }}">
+    <link rel="stylesheet" href="{{ asset('asset/css/fontawesome/all.css') }}">
+    <script src="{{ asset('asset/js/fontawesome/all.js') }}"></script>
 </head>
 <body>
+    <div id="app">
+        <x-flash-msg>
+            @yield('content')
+        </x-flash-msg>
+    </div>
